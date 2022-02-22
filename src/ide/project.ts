@@ -359,8 +359,8 @@ export class CodeProject {
     this.updateFileInStore(path, text); // TODO: isBinary
     this.filedata[path] = text;
     if (this.okToSend()) {
-      if (this.callbackBuildStatus) this.callbackBuildStatus(true);
-      this.sendBuild();
+      //if (this.callbackBuildStatus) this.callbackBuildStatus(true);
+      //this.sendBuild();
     }
   };
 

@@ -1572,6 +1572,12 @@ function resetPlatform() {
   platform.reset();
   _resetRecording();
 }
+// Manually trigger a build
+function compile() {
+  console.log("Compile");
+  setBusyStatus(true);
+  current_project.sendBuild();
+}
 
 function resetAndRun() {
   if (!checkRunReady()) return;
@@ -1850,6 +1856,7 @@ function setupDebugControls() {
   // create toolbar buttons
   uitoolbar = new Toolbar($("#toolbar")[0], null);
   uitoolbar.grp.prop('id','run_bar');
+  uitoolbar.add('ctrl+alt+c', 'Compile', 'glyphicon-repeat', compile).prop('id','dbg_compile');
   uitoolbar.add('ctrl+alt+r', 'Reset', 'glyphicon-refresh', resetAndRun).prop('id','dbg_reset');
   uitoolbar.add('ctrl+alt+,', 'Pause', 'glyphicon-pause', pause).prop('id','dbg_pause');
   uitoolbar.add('ctrl+alt+.', 'Resume', 'glyphicon-play', resume).prop('id','dbg_go');
